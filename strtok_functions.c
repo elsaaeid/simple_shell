@@ -17,7 +17,8 @@ char **strtokFunc1(char *str, char *delimeter)
 	if (!delimeter)
 		delimeter = " ";
 	for (i = 0; str[i] != '\0'; i++)
-		if (!isDelimeter(str[i], delimeter) && (isDelimeter(str[i + 1], delimeter) || !str[i + 1]))
+		if (!isDelimeter(str[i], delimeter) &&
+		(isDelimeter(str[i + 1], delimeter) || !str[i + 1]))
 			inputData++;
 
 	if (inputData == 0)

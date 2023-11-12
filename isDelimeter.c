@@ -2,7 +2,7 @@
 
 
 /**
- * is_delimeter - checks if character is a delimeter
+ * isDelimeter - checks if character is a delimeter
  * @c: the char to check
  * @delimeter: the delimeter string
  * Return: 1 if true, 0 if false

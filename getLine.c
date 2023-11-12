@@ -5,10 +5,9 @@
  * @stream: parameter struct
  * @buf: address of buffer
  * @len: address of len var
- *
  * Return: bytes read
  */
- 
+
 ssize_t inputBuffer(stream_t *stream, char **buf, size_t *len)
 {
 	ssize_t r = 0;
@@ -94,7 +93,6 @@ ssize_t getInputLine(stream_t *stream)
  * @stream: parameter struct
  * @buf: buffer
  * @i: size
- *
  * Return: r
  */
 ssize_t readBuffer(stream_t *stream, char *buf, size_t *i)
@@ -114,7 +112,6 @@ ssize_t readBuffer(stream_t *stream, char *buf, size_t *i)
  * @stream: parameter struct
  * @linePtr: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated linePtr buffer if not NULL
- *
  * Return: s
  */
 int getLine(stream_t *stream, char **linePtr, size_t *length)
@@ -157,9 +154,8 @@ int getLine(stream_t *stream, char **linePtr, size_t *length)
 }
 
 /**
- * signalNumHandler to handle signal number
+ * signalNumHandler - handle signal number
  * @sig_num: the signal number
- *
  * Return: void
  */
 void signalNumHandler(__attribute__((unused))int sig_num)

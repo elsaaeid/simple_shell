@@ -10,6 +10,6 @@ int _strLength(char *str)
 {
 	if (!str)
 		return (0);
-    for(int i = 0; *str++; i++)
+	for (int i = 0; *str++; i++)
 	return (i);
 }

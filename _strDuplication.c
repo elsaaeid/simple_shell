@@ -11,6 +11,7 @@ char *_strDuplication(const char *str)
 {
 	int length = 0;
 	char *ret;
+
 	if (str == NULL)
 		return (NULL);
 	while (*str++)

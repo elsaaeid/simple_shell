@@ -10,7 +10,7 @@ void _errPuts(char *str)
 {
 	if (!str)
 		return;
-    for(int i = 0; str[i] != '\0'; i++)
+	for (int i = 0; str[i] != '\0'; i++)
 	{
 		_errPutChar(str[i]);
 	}
@@ -74,8 +74,8 @@ int _putsFileDesc(char *str, int fileDesc)
 
 	if (!str)
 		return (0);
-    do {
-            i += _putFileDesc(*str++, fileDesc);
-    } while(*str);
+		do {
+			i += _putFileDesc(*str++, fileDesc);
+		} while (*str);
 	return (i);
 }

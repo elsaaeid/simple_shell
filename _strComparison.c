@@ -4,8 +4,8 @@
  * _strComparison - performs comparison of two strings.
  * @str1: the first string
  * @str2: the second string
- *
- * Return: negative if str1 < str2, positive if str1 > str2, zero if str1 == str2
+ * Return: negative if str1 < str2,
+ * positive if str1 > str2, zero if str1 == str2
  */
 int _strComparison(char *str1, char *str2)
 {
