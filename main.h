@@ -1,42 +1,38 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/*---LIBRARIES---*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <errno.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
-/* for read/write buffers */
-#define READ_BUF_SIZE 1024
-#define WRITE_BUF_SIZE 1024
-#define BUF_FLUSH -1
+#define BUFFER_SIZE 1024
+#define TOKEN_DELIMITERS " \t\r\n\a"
 
-/* for command chaining */
-#define CMD_NORM	0
-#define CMD_OR		1
-#define CMD_AND		2
-#define CMD_CHAIN	3
-
-/* for convert number */
-#define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	2
-
-/* system getline */
-#define USE_GETLINE 0
-#define USE_STRTOK 0
-
-#define HIST_FILE	".simple_shell_history"
-#define HIST_MAX	4096
-
-extern char **environ
+// Structure to hold the buffer memory
+typedef struct {
+    char buffer[BUFFER_SIZE];
+    int length;
+} Buffer;
 
 
-/**
- * struct streamInfo - contains pseudo arguments to pass into a fun,
- * allowing uniform prototype for function pointer struct
- * @arg: a string generated from getline containing argument
+/* buffer_handling.c */
+void init_buffer(Buffer* buffer);
+void add_to_buffer(Buffer* buffer, const char* data);
+void clear_buffer(Buffer* buffer);
+void print_buffer(const Buffer* buffer);
+
+/* execute_command.c */
+int execute_command(char** args);
+
+/* handle_builtin_commands.c */
+int handle_builtin_commands(char** args);
+
+/* read_input.c */
+void read_input(Buffer* buffer);
+
+/* tokenize_input.c */
+char** tokenize_input(const char* input);
+#endif

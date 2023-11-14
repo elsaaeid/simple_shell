@@ -1,44 +1,31 @@
+//main.c
 #include "main.h"
 
 /**
- * main - entry point
- * @ac: arg count
- * @av: arg value
+ * Function of entry point
  *
- * Return: 0 on success, 1 on error
+ * Return: 0 on success
  */
-
-int main(int ac, char **av)
-{
-	stream_t stream[] = { INFO_INIT };
-	int fd = 2;
-
-	asm ("mov %1, %0\n\t"
-		"add $3, %0"
-		: "=r" (fd)
-		: "r" (fd));
-	if (ac == 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		if (fd == -1)
-		{
-			if (errno == EACCES)
-				exit(126);
-			if (errno == ENOENT)
-			{
-				_errPuts(av[0]);
-				_errPuts(": 0: Cant't be opened");
-				_errPuts(av[1]);
-				_errPutChar('\n');
-				_errPutChar(BUF_FLUSH);
-				exit(127);
-			}
-			return (EXIT_FAILURE);
-		}
-		stream->readfd = fd;
-	}
-		populateEnvList(stream);
-		raedHistory(stream);
-		hsh(stream, av);
-	return (EXIT_SUCCESS);
+int main() {
+    Buffer buffer;
+    char** args;
+    int status;
+    
+    init_buffer(&buffer);
+    
+    do {
+        printf("shell> ");
+        read_input(&buffer);
+        args = tokenize_input(buffer.buffer);
+        status = handle_builtin_commands(args);
+        
+        if (status) {
+            status = execute_command(args);
+        }
+        
+        clear_buffer(&buffer);
+        free(args);
+    } while (status);
+    
+    return 0;
 }
