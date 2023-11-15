@@ -1,25 +1,18 @@
-/* tokenize_input.c */
+/* free_tokens.c */
 #include "main.h"
 
 /**
- * tokenize_input is function to tokenize the input command
- * @line
- * Return: token after spliting
+ * free_tokens is function to reserve space for tokens
+ * @tokens
+ * Return: tokens
  */
-char** tokenize_input(char* line)
+void free_tokens(char** tokens)
 {
-    char** tokens = malloc(MAX_ARGS * sizeof(char*));
-    char* token;
     int i = 0;
     
-    token = strtok(line, " \t\n");
-    while (token != NULL)
+    for (; tokens[i] != NULL; i++)
     {
-        tokens[i] = strdup(token);
-        token = strtok(NULL, " \t\n");
-        i++;
+        free(tokens[i]);
     }
-    
-    tokens[i] = NULL;
-    return tokens;
+    free(tokens);
 }
