@@ -8,9 +8,12 @@
  */
 void free_tokens(char** tokens)
 {
-    for (int i = 0; tokens[i] != NULL; i++)
+    int i = 0;
+    do 
     {
         free(tokens[i]);
-    }
+        i++;
+    } 
+    while (tokens[i] != NULL);
     free(tokens);
 }
