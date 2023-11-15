@@ -6,33 +6,25 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/wait.h>
 
-#define BUFFER_SIZE 1024
-#define TOKEN_DELIMITERS " \t\r\n\a"
+#define MAX_LINE 1024
+#define MAX_ARGS 64
 
-/* Structure to hold the buffer memory */
-typedef struct {
-    char buffer[BUFFER_SIZE];
-    int length;
-} Buffer;
+/* read_line.c */
+char* read_line();
 
+/* cd_dir.c */
+void cd_dir(char** args);
 
-/* buffer_handling.c */
-void init_buffer(Buffer* buffer);
-void add_to_buffer(Buffer* buffer, const char* data);
-void clear_buffer(Buffer* buffer);
-void print_buffer(const Buffer* buffer);
-
-/* execute_command.c */
-int execute_command(char** args);
-
-/* handle_builtin_commands.c */
-int handle_builtin_commands(char** args);
-
-/* read_input.c */
-void read_input(Buffer* buffer);
+/* free_tokens.c */
+void free_tokens(char** tokens);
 
 /* tokenize_input.c */
-char** tokenize_input(const char* input);
+char** tokenize_input(char* line);
+
+/* execute_command.c */
+void execute_command(char** args);
+
+/* exit_shell.c */
+void exit_shell();
 #endif

@@ -6,26 +6,23 @@
  *
  * Return: 0 on success
  */
-int main() {
-    Buffer buffer;
+int main() 
+{
+    char* line;
     char** args;
     int status;
-    
-    init_buffer(&buffer);
-    
-    do {
-        printf("shell> ");
-        read_input(&buffer);
-        args = tokenize_input(buffer.buffer);
-        status = handle_builtin_commands(args);
-        
-        if (status) {
-            status = execute_command(args);
-        }
-        
-        clear_buffer(&buffer);
-        free(args);
-    } while (status);
-    
+
+    do
+    {
+        printf("> ");
+        line = read_line();
+        args = parse_line(line);
+        execute(args);
+
+        free(line);
+        free_tokens(args);
+    }
+    while (status);
+
     return 0;
 }
