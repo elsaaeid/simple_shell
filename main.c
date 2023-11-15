@@ -3,26 +3,26 @@
 
 /**
  * Function of entry point
- * @status
  * Return: 0 on success
  */
-int main() 
+int main()
 {
-    char* line;
-    char** args;
-    int status;
+    char command[MAX_COMMAND_LENGTH];
+    char* arguments[MAX_NUM_ARGUMENTS];
 
-    do
+    while (1)
     {
-        printf("> ");
-        line = read_line();
-        args = tokenize_input(line);
-        execute_command(args);
+        read_command(command);
+        tokenize_input(command, arguments);
 
-        free(line);
-        free_tokens(args);
+        if (is_builtin_command(arguments[0])) 
+        {
+            execute_builtin_command(arguments);
+        }else 
+        {
+            execute_command(arguments);
+        }
     }
-    while (status);
 
     return 0;
 }

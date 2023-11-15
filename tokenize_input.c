@@ -1,19 +1,23 @@
-/* free_tokens.c */
+/* tokenize_input.c */
 #include "main.h"
 
 /**
- * free_tokens is function to reserve space for tokens
- * @tokens
- * Return: tokens
+ * tokenize_input is function to execute a command
+ * @command
+ * @arguments
+ * Return: 0 or 1
  */
-void free_tokens(char** tokens)
+
+void tokenize_input(char* command, char** arguments)
 {
+    char* token = strtok(command, " ");
     int i = 0;
-    do 
+
+    while (token != NULL)
     {
-        free(tokens[i]);
-        i++;
-    } 
-    while (tokens[i] != NULL);
-    free(tokens);
+        arguments[i++] = token;
+        token = strtok(NULL, " ");
+    }
+
+    arguments[i] = NULL;
 }

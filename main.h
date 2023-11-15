@@ -4,28 +4,27 @@
 /*---LIBRARIES---*/
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
-#define MAX_LINE 1024
-#define MAX_ARGS 64
+#define MAX_COMMAND_LENGTH 100
+#define MAX_NUM_ARGUMENTS 10
 
-/* read_line.c */
-char* read_line();
 
-/* cd_dir.c */
-void cd_dir(char** args);
+/* read_command.c */
+void read_command(char* command);
 
-/* free_tokens.c */
-void free_tokens(char** tokens);
+/* execute_builtin_command.c */
+void execute_builtin_command(char** arguments);
 
-/* tokenize_input.c */
-char** tokenize_input(char* line);
+/* tokenize_input */
+void tokenize_input(char* command, char** arguments);
 
 /* execute_command.c */
 void execute_command(char** args);
 
-/* exit_shell.c */
-void exit_shell();
+/* is_builtin_command.c */
+int is_builtin_command(char* command);
 #endif
