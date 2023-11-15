@@ -3,11 +3,11 @@
 
 /**
  * execute_command is function to execute a command
- * @arguments
+ * @**arguments
  * Return: 0
  */
 
-void execute_command(char** arguments)
+void execute_command(char **arguments)
 {
     pid_t pid = fork();
 
