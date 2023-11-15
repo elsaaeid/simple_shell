@@ -3,18 +3,17 @@
 
 /**
  * Function of entry point
- *
+ * @status
  * Return: 0 on success
  */
 int main() 
 {
     char* line;
     char** args;
+    int status;
 
     do
     {
-	int status;
-
         printf("> ");
         line = read_line();
         args = tokenize_input(line);
