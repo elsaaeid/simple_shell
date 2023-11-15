@@ -1,4 +1,4 @@
-//handle_builtin_commands.c
+/* handle_builtin_commands.c */
 #include "main.h"
 
 /**

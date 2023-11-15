@@ -11,7 +11,7 @@
 #define BUFFER_SIZE 1024
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
-// Structure to hold the buffer memory
+/* Structure to hold the buffer memory */
 typedef struct {
     char buffer[BUFFER_SIZE];
     int length;

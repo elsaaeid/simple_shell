@@ -1,4 +1,4 @@
-//tokenize_input.c
+/* tokenize_input.c */
 #include "main.h"
 
 /**

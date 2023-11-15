@@ -1,5 +1,5 @@
 #include "main.h"
-//buffer_handling.c
+/* buffer_handling.c */
 
 /**
  * Function of init_buffer

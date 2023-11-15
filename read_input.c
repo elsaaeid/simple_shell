@@ -1,4 +1,4 @@
-//read_input.c
+/* read_input.c */
 #include "main.h"
 
 /**
