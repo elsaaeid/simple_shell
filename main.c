@@ -16,8 +16,8 @@ int main()
     {
         printf("> ");
         line = read_line();
-        args = parse_line(line);
-        execute(args);
+        args = tokenize_input(line);
+        execute_command(args);
 
         free(line);
         free_tokens(args);
