@@ -10,10 +10,11 @@ int main()
 {
     char* line;
     char** args;
-    int status;
 
     do
     {
+	int status;
+
         printf("> ");
         line = read_line();
         args = tokenize_input(line);
