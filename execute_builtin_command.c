@@ -6,14 +6,12 @@
  * @arguments
  * Return: 0
  */
-void execute_builtin_command(char** arguments)
-{
+void execute_builtin_command(char **arguments){
     if (strcmp(arguments[0], "exit") == 0)
     {
         exit(0);
     } 
-    else if
-    (strcmp(arguments[0], "cd") == 0)
+    else if (strcmp(arguments[0], "cd") == 0)
     {
         if (arguments[1] == NULL)
         {
