@@ -8,10 +8,10 @@
  * Return: 0 on success
  */
 
-int main(char *arguments, char command)
+int main(void)
 {
-	command[MAX_COMMAND_LENGTH];
-	*arguments[MAX_NUM_ARGUMENTS];
+	char command[MAX_COMMAND_LENGTH];
+	char *arguments[MAX_NUM_ARGUMENTS];
 
 	while (1)
 	{
