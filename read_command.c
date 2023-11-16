@@ -9,7 +9,7 @@
 
 void read_command(char *command)
 {
-	printf("Enter a command: ");
+	printf("$");
 	fgets(command, MAX_COMMAND_LENGTH, stdin);
 	command[strcspn(command, "\n")] = '\0';
 }
