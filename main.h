@@ -14,17 +14,17 @@
 
 
 /* read_command.c */
-void read_command(char* command);
+void read_command(char *command);
 
 /* execute_builtin_command.c */
-void execute_builtin_command(char** arguments);
+void execute_builtin_command(char **arguments);
 
 /* tokenize_input */
-void tokenize_input(char* command, char** arguments);
+void tokenize_input(char *command, char **arguments);
 
 /* execute_command.c */
-void execute_command(char** args);
+void execute_command(char **args);
 
 /* is_builtin_command.c */
-int is_builtin_command(char* command);
+int is_builtin_command(char *command);
 #endif
