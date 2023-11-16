@@ -8,7 +8,7 @@
  * Return: 0 on success
  */
 
-int main(void)
+int main()
 {
 	char command[MAX_COMMAND_LENGTH];
 	char *arguments[MAX_NUM_ARGUMENTS];
