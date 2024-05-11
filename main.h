@@ -20,7 +20,7 @@ void read_command(char *command);
 void execute_builtin_command(char **arguments);
 
 /* tokenize_input */
-void tokenize_input(char *command, char **arguments);
+void tokenize_input(char* command, char** arguments);
 
 /* execute_command.c */
 void execute_command(char **args);

@@ -2,21 +2,22 @@
 #include "main.h"
 
 /**
- * tokenize_input - function to split to tokens
- * @command: command line pointer
- * @arguments: pointer of strings
- * Return: string tokens which splited
+ * tokenize_input - function to split a command
+ * @command: pointer of command
+ * @arguments: pointer args to loop on strings
+ * Return: splited command
  */
 
-void tokenize_input(char *command, char **arguments)
+void tokenize_input(char *command, char *arguments)
 {
 	char *token = strtok(command, " ");
-	int i = 0;
+	int num_arguments = 0;
 
-	while (token != NULL)
+	while (token != NULL && num_arguments < MAX_NUM_ARGUMENTS)
 	{
-		arguments[i++] = token;
+		arguments[num_arguments] = token;
+		num_arguments++;
 		token = strtok(NULL, " ");
 	}
-	arguments[i] = NULL;
+	arguments[num_arguments] = NULL;
 }
